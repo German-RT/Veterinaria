@@ -1,0 +1,15 @@
+@model List<Veterinaria.Models.Mascota>
+
+<h2>Mascotas registradas</h2>
+@if (TempData["Mensaje"] != null)
+{
+    <p>@TempData["Mensaje"]</p>
+}
+<ul>
+@foreach (var m in Model)
+{
+    <li>@m.Id - @m.Nombre (@m.Tipo) - @m.Edad años</li>
+}
+</ul>
+
+<a asp-action="Registrar">Registrar otra mascota</a>
