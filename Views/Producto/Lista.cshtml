@@ -1,22 +1,27 @@
-@model List<Veterinaria.Models.Producto>
+@model IEnumerable<Veterinaria.Models.Producto>
 
-<h2>Productos para mascotas</h2>
-<table>
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Nombre</th>
-            <th>Precio</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var p in Model)
-        {
+@{
+    ViewData["Title"] = "Lista de Productos";
+}
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">🛒 Lista de Productos</h2>
+
+    <table class="table table-hover table-bordered shadow-sm rounded">
+        <thead class="table-dark">
             <tr>
-                <td>@p.Id</td>
-                <td>@p.Nombre</td>
-                <td>@p.Precio.ToString("0.00")</td>
+                <th>Nombre</th>
+                <th>Precio</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var producto in Model)
+            {
+                <tr>
+                    <td>@producto.Nombre</td>
+                    <td>S/ @producto.Precio</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
