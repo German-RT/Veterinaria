@@ -1,0 +1,22 @@
+@model List<Veterinaria.Models.Producto>
+
+<h2>Productos para mascotas</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Precio</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var p in Model)
+        {
+            <tr>
+                <td>@p.Id</td>
+                <td>@p.Nombre</td>
+                <td>@p.Precio.ToString("0.00")</td>
+            </tr>
+        }
+    </tbody>
+</table>
